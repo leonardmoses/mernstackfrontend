@@ -1,0 +1,34 @@
+// --------------------------
+// VARIABLES
+// --------------------------
+$maincolor: black;
+$contrastcolor: white;
+
+@mixin white-text-black-bg {
+  color: $contrastcolor;
+  background-color: $maincolor;
+}
+
+@mixin black-test-white-bg {
+  color: $maincolor;
+  background-color: $contrastcolor;
+}
+
+// --------------------------
+// Header
+// --------------------------
+
+nav {
+  @include white-text-black-bg;
+  display: flex;
+  justify-content: flex-start;
+
+  a {
+    @include white-text-black-bg;
+
+    div {
+      margin: 10px;
+      font-size: large;
+    }
+  }
+}
