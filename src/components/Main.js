@@ -4,12 +4,13 @@ import Index from "../pages/Index";
 import Show from "../pages/Show";
 
 function Main(props) {
-      // create state to hold about data
+    // create state to hold about data
     const [ people, setPeople ] = useState(null);
 
+    // create a var URL to be passed into when making API call
     const URL = "https://mernstackbackend.herokuapp.com/people";
   
-      // create function to make api call
+    // create function to make api call
     const getPeople = async () => {
         // make api call and get response   
         const response = await fetch(URL);
