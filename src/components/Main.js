@@ -39,7 +39,7 @@ function Main(props) {
     // we need this function to update the data
     const updatePeople = async (person, id) => {
       // make put request to create people
-      await fetch(URL + id, {
+      await fetch(URL + "/" + id, {
         method: "PUT",
         //so that it knows it's json data
         headers: {
@@ -55,7 +55,7 @@ function Main(props) {
     // we need this to delete a person
     const deletePeople = async id => {
       // make delete request to create people
-      await fetch(URL + id, {
+      await fetch(URL + "/" + id, {
         method: "DELETE",
       })
       // update list of people

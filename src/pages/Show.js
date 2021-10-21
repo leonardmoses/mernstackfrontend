@@ -17,7 +17,8 @@ function Show(props) {
     // handlesubmit for form
     const handleSubmit = event => {
         event.preventDefault();
-        props.updatePeople(editForm);
+        props.updatePeople(editForm, person._id);
+        console.log(person.name)
         // redirect people back to index
         props.history.push("/");
     }
