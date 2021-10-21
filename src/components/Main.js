@@ -36,6 +36,32 @@ function Main(props) {
       getPeople();
     };
 
+    // we need this function to update the data
+    const updatePeople = async (person, id) => {
+      // make put request to create people
+      await fetch(URL + id, {
+        method: "PUT",
+        //so that it knows it's json data
+        headers: {
+          "Content-Type": "Application/json",
+        },
+        //stringify will convert into json format
+        body: JSON.stringify(person),
+      });
+      // update list of people
+      getPeople();
+    }
+
+    // we need this to delete a person
+    const deletePeople = async id => {
+      // make delete request to create people
+      await fetch(URL + id, {
+        method: "DELETE",
+      })
+      // update list of people
+      getPeople();
+    }
+
     // make an initial call for the data inside a useEffect, so it only happens once on component load. [] means run once. 
     useEffect(() => getPeople(), []);
 
@@ -50,8 +76,11 @@ function Main(props) {
               path="/people/:id"
               render={(rp) => (
                 <Show
-                  {...rp}
-                />
+                people={people}
+                updatePeople={updatePeople}
+                deletePeople={deletePeople}
+                {...rp}
+              />
               )}
             />
           </Switch>
